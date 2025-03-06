@@ -1,3 +1,10 @@
 pytest
 fastapi[all]
 requests
+opencv-python
+matplotlib
+pillow
+scikit-image
+selenium
+Scrapy
+beautifulsoup4
