@@ -14,6 +14,9 @@ def find_max(numbers:List)->Union[int,float]:
         ValueError: 리스트가 비어있을 경우
     """
     # 함수 구현
+    if not numbers:
+        ValueError("리스트가 비어있습니다.")
+    return max(numbers)
     
 def filter_even_numbers(numbers:List)->List:
     """
@@ -26,6 +29,11 @@ def filter_even_numbers(numbers:List)->List:
         list: 짝수만 포함된 리스트
     """
     # 함수 구현
+    result = []
+    for num in numbers:
+        if num % 2 == 0:
+            result.append(num)
+    return result
     
 def average(numbers:List)->float:
     """
@@ -41,3 +49,6 @@ def average(numbers:List)->float:
         ValueError: 리스트가 비어있을 경우
     """
     # 함수 구현
+    if not numbers:
+        return ValueError("리스트가 비어있습니다.")
+    return sum(numbers) / len(numbers)
