@@ -10,6 +10,9 @@ def reverse_list(input_list:List)->List:
         list: 순서가 뒤집힌 리스트
     """
     # 함수 구현
+    return input_list[::-1]
+    # return list(reversed(input_list)) 1) 뒤집힌 이터레이터 변환 2) 리스트로 반환
+
     
 def concatenate_lists(list1:List, list2:List)->List:
     """
@@ -23,7 +26,8 @@ def concatenate_lists(list1:List, list2:List)->List:
     Returns:
         list: 인덱스별로 연결된 리스트
     """
-    # 함수 구현
+    # 함수 구현                               list1 > list2         list2 > list1
+    return list(sum(zip(list1, list2), ())) + list1[len(list2):] + list2[len(list1):]
     
 def square_list(numbers:List)->List:
     """
@@ -36,3 +40,4 @@ def square_list(numbers:List)->List:
         list: 모든 요소가 제곱된 리스트
     """
     # 함수 구현
+    return [num ** 2 for num in numbers]

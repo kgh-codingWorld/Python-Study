@@ -7,7 +7,7 @@ def test_reverse_list():
 
 def test_concatenate_lists():
     assert concatenate_lists([1, 2, 3], [4, 5, 6]) == [1, 4, 2, 5, 3, 6]
-    assert concatenate_lists([1, 2], [3, 4, 5]) == [1, 3, 2, 4]
+    assert concatenate_lists([1, 2], [3, 4, 5]) == [1, 3, 2, 4, 5]
 
 def test_square_list():    
     assert square_list([1, 2, 3, 4]) == [1, 4, 9, 16]

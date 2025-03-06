@@ -12,6 +12,7 @@ def custom_map(function:Callable, input_list:List)->List:
         list: 함수가 적용된 결과 리스트
     """
     # 함수 구현
+    return [function(item) for item in input_list]
     
 def custom_filter(predicate:Callable, input_list:List)->List:
     """
@@ -25,6 +26,7 @@ def custom_filter(predicate:Callable, input_list:List)->List:
         list: 조건에 맞는 요소만 포함된 리스트
     """
     # 함수 구현
+    return [item for item in input_list if predicate(item)]
     
 def custom_reduce(function:Callable, input_list:List, initial:Optional[Any]=None)->Any:
     """
@@ -42,3 +44,14 @@ def custom_reduce(function:Callable, input_list:List, initial:Optional[Any]=None
         ValueError: 리스트가 비어있고 초기값이 None일 경우
     """
     # 함수 구현
+    if not input_list and initial is None:
+        raise ValueError("list is empty")
+    
+    # iter : 반복자
+    it = iter(input_list)
+    result = initial if initial is not None else next(it) # 초기값 x > 첫 번째 요소를 초기값으로 사용용
+
+    for item in it:
+        result = function(result, item) # 누적 연산 수행
+    return result
+
